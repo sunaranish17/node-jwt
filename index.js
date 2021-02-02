@@ -2,7 +2,6 @@ const express = require('express');
 const env = require('dotenv');
 const app = express();
 const mongoose = require('mongoose');
-const e = require('express');
 
 //Environment varibale
 env.config();

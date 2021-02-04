@@ -1,7 +1,6 @@
-const mongoose = require('mongoose')
-const User = mongoose.model("User")
-
 const bcrypt = require('bcryptjs');
+
+const User = require('../models/user')
 
 exports.signUp = (req, res) => {
     const { name, email, password } = req.body;
@@ -19,8 +18,7 @@ exports.signUp = (req, res) => {
                     const user = new User({
                         email,
                         password: hashedPassword,
-                        name,
-                        pic
+                        name
                     })
 
                     user.save()

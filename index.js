@@ -18,12 +18,18 @@ mongoose.connect(
     console.log('Database connection successful');
 });
 
+//routes
+const authRoutes = require('./routes/auth');
+
 //Server test
 app.get('/health-check', (req, res) => {
     res.status(200).json({
         message: "Hello from Server"
     })
 });
+
+app.use(express.json());
+app.use('/api', authRoutes);
 
 app.listen(process.env.PORT, () => {
     console.log(`Server is running on ${process.env.PORT}`)
